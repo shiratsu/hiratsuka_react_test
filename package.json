@@ -12,7 +12,9 @@
     "clean": "watchman watch-del-all && npm cache clean --force && cd android && ./gradlew clean && cd .."
   },
   "dependencies": {
+    "@react-navigation/bottom-tabs": "^5.2.8",
     "@react-navigation/native": "^5.1.7",
+    "@react-navigation/stack": "^5.2.14",
     "axios": "^0.19.2",
     "fsevents": "^2.1.3",
     "react": "16.9.0",
