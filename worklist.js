@@ -9,9 +9,6 @@ import {
   FlatList,
   TouchableOpacity
 } from 'react-native';
-import Constants from 'expo-constants';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 
 
 
@@ -209,7 +206,7 @@ class WorkList extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constants.statusBarHeight,
+    marginTop: 5,
     marginHorizontal: 10,
   },
   item: {

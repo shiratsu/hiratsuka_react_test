@@ -6,7 +6,6 @@ import {
   SafeAreaView,
   SectionList,
 } from 'react-native';
-import Constants from 'expo-constants';
 import axios from 'axios';
 
 const DATA = [
@@ -123,7 +122,7 @@ const DATA = [
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      marginTop: Constants.statusBarHeight,
+      marginTop: 10,
       marginHorizontal: 10,
     },
     item: {
