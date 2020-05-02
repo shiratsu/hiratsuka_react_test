@@ -1,142 +1,118 @@
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  SectionList,
-} from 'react-native';
-import axios from 'axios';
+import React from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Button } from 'react-native-elements'
 
-const DATA = [
-    {
-      title: 'Main dishes',
-      data: ['Pizza', 'Burger', 'Risotto'],
-    },
-    {
-      title: 'Sides',
-      data: ['French Fries', 'Onion Rings', 'Fried Shrimps'],
-    },
-    {
-      title: 'Drinks',
-      data: ['Water', 'Coke', 'Beer'],
-    },
-    {
-      title: 'Desserts',
-      data: ['Cheese Cake', 'Ice Cream'],
-    },
-  ];
-
-  function Item({ title }) {
+class SampleList extends React.Component {
+  render() {
     return (
-      <View style={styles.item}>
-        <Text style={styles.title}>{title}</Text>
+      <View style={styles.container}>
+        <Button
+          backgroundColor="#ff5622"
+          title='普通のボタン'
+          style={styles.button}/>
+        <Button
+          backgroundColor="#ff5622"
+          title='onPress/onLongPress'
+          style={styles.button}
+          onPress={() => console.log('押されたよ')}
+          onLongPress={() => console.log('長く押されたよ')}/>
+        <Button
+          raised
+          backgroundColor="#009588"
+          title='RAISED（ちょっと浮き上がる）'
+          style={styles.button}/>
+        <Button
+          icon={{name: 'cached'}}
+          backgroundColor="#9c26b0"
+          title='アイコン付き'
+          style={styles.button}/>
+        <Button
+          large
+          backgroundColor="#8ac34a"
+          title='largeだとこのくらいの大きさ'
+          style={styles.button}/>
+        <Button
+          large
+          backgroundColor="#8ac34a"
+          title='largeだとこのくらいの大きさ'
+          style={styles.button}/>
+        <Button
+          large
+          iconRight={{name: 'code'}}
+          backgroundColor="#ffc107"
+          title='右にもアイコンを付けられる'
+          style={styles.button}/>
+        <Button
+          large
+          backgroundColor="#25292f"
+          icon={{name: 'mark-github', type: 'octicon'}}
+          title='OCTICONも使える'
+          style={styles.button}/>
+        <Button
+          large
+          backgroundColor="#25292f"
+          icon={{name: 'mark-github', type: 'octicon'}}
+          title='OCTICONも使える'
+          style={styles.button}/>
+        
+
+        <Button
+          large
+          backgroundColor="#25292f"
+          icon={{name: 'mark-github', type: 'octicon'}}
+          title='OCTICONも使える'
+          style={styles.button}/>
+
+        <Button
+          large
+          backgroundColor="#25292f"
+          icon={{name: 'mark-github', type: 'octicon'}}
+          title='OCTICONも使える'
+          style={styles.button}/>
+
+        <Button
+          large
+          backgroundColor="#25292f"
+          icon={{name: 'mark-github', type: 'octicon'}}
+          title='OCTICONも使える'
+          style={styles.button}/>
+
+        <Button
+          large
+          backgroundColor="#25292f"
+          icon={{name: 'mark-github', type: 'octicon'}}
+          title='OCTICONも使える'
+          style={styles.button}/>
+
+        <Button
+          large
+          backgroundColor="#25292f"
+          icon={{name: 'mark-github', type: 'octicon'}}
+          title='OCTICONも使える'
+          style={styles.button}/>
+
+        <Button
+          large
+          backgroundColor="#25292f"
+          icon={{name: 'mark-github', type: 'octicon'}}
+          title='OCTICONも使える'
+          style={styles.button}/>                
       </View>
     );
   }
-  
-  class SampleList extends Component {
-    
-    state = {
-      worklists: null,
-      listMeta: null
-    }
-
-    componentDidMount() {
-       
-      var param = {'a':'01','pr':'13','start':'1',}
-  
-      axios
-      .get('https://api-front.shotworks.jp/api-front/app/worklist', { params: param　})
-      .then((results) => {
-          // 通信に成功してレスポンスが返ってきた時に実行したい処理
-          console.log(results.data.Result);
-          console.log(results.data.ResultSet);
-          this.setState({ worklists: results.data.Result, listMeta: results.data.ResultSet });
-      })
-      .catch((error) => { 
-          // 通信に失敗してレスポンスが返ってこなかった時に実行したい処理
-          console.log('処理に失敗しました');
-      });     
-    }
-   
-
-    render() {
-      return (
-        <SafeAreaView style={styles.container}>
-        <SectionList
-          sections={this.state.worklists}
-          keyExtractor={(item, index) => item + index}
-          renderItem={({ item }) => <Item title={item} />}
-          renderSectionHeader={({ section: { title } }) => (
-            <Text style={styles.header}>{title}</Text>
-          )}
-        />
-      </SafeAreaView>
-      )
-    }
-
-    constructor(props) {
-      super(props);
-      this.state = {date: new Date()};
-      console.log("constructor");
-    }
-
-    // componentWillUnmount(){
-    //   console.log("componentDidMount");
-    // }
-
-    // componentWillMount(){
-    //   console.log("componentWillMount");
-    // }
-
-    // componentDidMount(){
-    //   console.log("componentDidMount");
-    // }
-
-    // componentDidUpdate(prevProps) {
-
-    //   console.log("componentDidUpdate");
-    // }
-    
-    // componentWillUpdate(prevProps) {
-
-    //   console.log("componentWillUpdate");
-    // }
-
-    // componentWillUnmount() {
-
-    //   console.log("componentWillUnmount");
-    // }
-
-    // static getDerivedStateFromProps(nextProps: Props, prevState: State) {
-    //   const name = nextProps.name.toUpperCase();
-    //   if (prevState.name !== name) {
-    //     return { isDerivered: true, name };
-    //   }
-    //   return;
-    // }
-  }
-
+}
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      marginTop: 10,
-      marginHorizontal: 10,
-    },
-    item: {
-      backgroundColor: '#ffffff',
-      padding: 20,
-      marginVertical: 8,
-    },
-    header: {
-      fontSize: 28,
-    },
-    title: {
-      fontSize: 13,
-    },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    // alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    margin: 10
+  }
+});
 
 export default SampleList;  
   
